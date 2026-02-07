@@ -9,6 +9,16 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form method="get" class="mb-3">
+    <label>Filtrar por categoría:</label>
+
+    <select name="categoryId"
+            class="form-control"
+            asp-items="ViewBag.CategoryId"
+            onchange="this.form.submit()">
+        <option value="0">Todas</option>
+    </select>
+</form>
 <table class="table">
     <thead>
         <tr>
