@@ -1,8 +1,87 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+
+    <!-- HERO -->
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6">
+            <h1 class="display-5 fw-bold">
+                Bienvenido a <span class="text-primary">CatalogoVirtual</span>
+            </h1>
+
+            <p class="lead mt-3">
+                Explora, gestiona y administra productos de forma sencilla.
+                Una tienda virtual pensada para crecer contigo.
+            </p>
+
+            @if (!User.Identity!.IsAuthenticated)
+            {
+                <a asp-area="Identity"
+                   asp-page="/Account/Login"
+                   class="btn btn-primary btn-lg me-2">
+                    Iniciar sesión
+                </a>
+
+                <a asp-area="Identity"
+                   asp-page="/Account/Register"
+                   class="btn btn-outline-secondary btn-lg">
+                    Registrarse
+                </a>
+            }
+            else
+            {
+                <a asp-controller="Products"
+                   asp-action="Index"
+                   class="btn btn-success btn-lg">
+                    Ver catálogo
+                </a>
+            }
+        </div>
+
+        <div class="col-md-6 text-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png"
+                 class="img-fluid"
+                 style="max-height: 320px;"
+                 alt="Tienda virtual" />
+        </div>
+    </div>
+
+    <!-- FEATURES -->
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Gestión de Productos</h5>
+                    <p class="card-text">
+                        Administra productos con nombre, precio, stock e imagen.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Categorías</h5>
+                    <p class="card-text">
+                        Organiza tu catálogo de forma clara y ordenada.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Acceso Seguro</h5>
+                    <p class="card-text">
+                        Sistema protegido con autenticación de usuarios.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
